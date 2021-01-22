@@ -190,19 +190,19 @@ chmod +x /etc/openvpn/openvpn.bash
 wget -O /etc/openvpn/client.ovpn "https://raw.githubusercontent.com/bengali89/vdvs83/main/client.conf"
 sed -i $MYIP2 /etc/openvpn/client.ovpn;
 echo '<ca>' >> /etc/openvpn/client.ovpn
-cat /etc/openvpn/ca.crt >> /etc/openvpn/client.ovpn
+cat /etc/openvpn/keys/ca.crt >> /etc/openvpn/client.ovpn
 echo '</ca>' >> /etc/openvpn/client.ovpn
 sed -i $MYIP2 /etc/openvpn/client.ovpn;
 echo '<cert>' >> /etc/openvpn/client.ovpn
-cat /etc/openvpn/client.crt >> /etc/openvpn/client.ovpn
+cat /etc/openvpn/keys/server.crt >> /etc/openvpn/client.ovpn
 echo '</cert>' >> /etc/openvpn/client.ovpn
 sed -i $MYIP2 /etc/openvpn/client.ovpn;
 echo '<key>' >> /etc/openvpn/client.ovpn
-cat /etc/openvpn/client.key >> /etc/openvpn/client.ovpn
+cat /etc/openvpn/keys/server.key >> /etc/openvpn/client.ovpn
 echo '</key>' >> /etc/openvpn/client.ovpn
 sed -i $MYIP2 /etc/openvpn/client.ovpn;
 echo '<tls-auth>' >> /etc/openvpn/client.ovpn
-cat /etc/openvpn/ta.key >> /etc/openvpn/client.ovpn
+cat /etc/openvpn/keys/ta.key >> /etc/openvpn/client.ovpn
 echo '</tls-auth>' >> /etc/openvpn/client.ovpn
 cp client.ovpn /home/vps/public_html/
 
